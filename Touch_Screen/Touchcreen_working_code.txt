@@ -1,0 +1,38 @@
+#define Y1 A0
+#define X2 A1
+#define Y2 A2
+#define X1 A3
+
+void setup() {
+
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  //////////////////////reading y value////////////////////////
+  pinMode(Y2, OUTPUT);
+  pinMode(Y1, OUTPUT);
+  pinMode(X1, INPUT);
+  pinMode(X2, INPUT);
+  delay(10);
+  digitalWrite(Y2, HIGH);
+  digitalWrite(Y1, LOW);
+  int sensorValue1 = analogRead(X1);
+  Serial.print("Y is");
+  Serial.println(sensorValue1);
+//////////////////////reading x value////////////////////////
+  pinMode(X1, OUTPUT);
+  pinMode(X2, OUTPUT);
+  pinMode(Y1, INPUT);
+  pinMode(Y2, INPUT);
+  delay(10);
+  digitalWrite(X1, HIGH);
+  digitalWrite(X2, LOW);
+ int sensorValue2 = analogRead(Y2);
+  Serial.print("X is");
+  Serial.println(sensorValue2); 
+
+  delay(1000);
+}
